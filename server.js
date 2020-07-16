@@ -13,7 +13,10 @@ server.get("/", (req, res) => {
 server.use("/api/users", UserRouter);
 server.use("/api/posts", PostRouter);
 
+//custom middleware
 function logger(req, res, next) {
   console.log(`${req.method} ${req.originalUrl} at ${new Date().toString()}`);
   next();
 }
+
+module.exports = server;

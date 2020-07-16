@@ -1,14 +1,9 @@
 // code away!
-const express = require('express');
-const server = express();
-const port  = 5000
+const server = require("./server");
+const PORT = process.env.PORT || 5000;
 
-server.use(express.json());
+server.listen(PORT, () => {
+  console.log(`\n *** Server running at http://localhost:${PORT}... *** \n`);
+});
 
-server.get('/', (req, res)=>{
-    res.send(`Stay strong Taja`)
-})
-
-server.listen(port, ()=>{
-    console.log(`Server listening on port ${port}`)
-})
+module.exports = server;
